@@ -104,3 +104,32 @@ print(f"identidad:\t\t{nombre_completo}, {legajo} ")
 print(f"Promedio:\t\t{promedio}")
 print(f"Estado academico :\t{estado_academico}")
 print ("\n")
+usuario = input("Introdusca su nombre de usuario: ")
+pin = input("Introduzca su pin de 4 digitos: ")
+largo = len(pin)
+if largo != 4:
+    i = 1#i = iteración
+    while i > 3:
+        pin = input("Introduzca su pin de 4 digitos: ")
+        largo = len(pin)
+        if largo != "4":
+            i = i +1
+        if largo == "4":
+            i = 4
+print("\n")
+saldo_inicial = int(500000)
+print(f"El saldo inicial es de ${saldo_inicial}")
+condicion = 0
+while condicion == 0:
+    retiro = int(input("Introdusca el monto a retira multiplo de 1000: "))
+    if retiro % 1000 == 0 and retiro <= saldo_inicial :
+        condicion = 1
+        saldo_inicial = saldo_inicial - retiro
+        if retiro > 20000:
+            print ("Se le descontara un 2 por ciento de comision por superar los $20000")
+            retiro = retiro * 0.98
+            print (f"Su retiro es de: ${retiro}")
+    else:
+        print("Su monto no es multiplo de 1000 o supera su saldo")
+print (f"El saldo actual es de ${saldo_inicial}")
+print("\n")
