@@ -67,3 +67,40 @@ print (f"Nombre:\t \t \t {nombre_completo}")
 print (f"Ingresos anuales:\t {ingresos_anuales}")
 print (f"Edad:\t \t\t {edad}")
 print (f"Impuestos:\t \t {impuestos_reales}")
+#2)Sistema de calificaciones con promoción
+condicion = 0
+nombre_completo = input("Introduce tu nombre completo: ")
+legajo = input("Ingrese su numero de legajo(un legajo tiene 8 digitos): ")
+while condicion == 0:
+	largo = len(legajo)
+	if largo >8 or largo <8:
+		legajo = int(input("Ingrese su numero de legajo: "))
+	elif largo <=8 and largo >=1:
+		condicion = 1
+aprobado = True
+i = 0
+promedio = 0
+while i <3:
+	i = i + 1
+	nota = int(input("Ingrese una nota entre 0-10: "))
+	if nota >10 or nota < 0:
+		nota = 0
+		i = i -1
+	if nota < 4:
+		aprobado = False
+	promedio = promedio + nota
+promedio = round(promedio / 3,2)
+if aprobado == True:
+	if promedio < 6:
+		estado_academico = "Desaprobado" 
+	elif promedio >= 6 and promedio <8:
+		estado_academico = "Aprobado con final"
+	else:
+		estado_academico = "Promocionado"
+else:
+	estado_academico = "Desaprobado directo"
+print("\n")
+print(f"identidad:\t\t{nombre_completo}, {legajo} ")
+print(f"Promedio:\t\t{promedio}")
+print(f"Estado academico :\t{estado_academico}")
+print ("\n")
